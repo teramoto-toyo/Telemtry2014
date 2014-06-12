@@ -1,0 +1,165 @@
+@CHARSET "UTF-8";
+
+body { margin:40px 0 0 80px; }
+
+/* 属性クリア */
+.clear {
+	float:none;
+	clear:both;
+	font-size:1px;
+	height:1px;
+	line-height:1px;
+	margin-top:-1px;
+	overflow:hidden;
+}
+
+/* コントロールレイアウト */
+#controls {
+	margin-top:1.5em;
+	font-size:0.85em;
+}
+
+#controls dl {
+	width:16em;
+}
+
+/* 全体の枠 */
+#controls dl.params {
+	position:relative;
+	float:left;
+	display:inline;
+	margin:0px;
+	margin-right:1em;
+	padding:0.75em;
+	height:12.4em;
+	border:1px solid #1c1c1c;
+	background: #f0f0f0;
+}
+
+#controls .disabled {
+	color: #333;
+}
+
+#controls dl dd p {
+	margin:0px;
+	padding:0px;
+}
+
+#controls dt,
+#controls dd {
+	margin:0px;
+	padding: 0px;
+}
+
+/*	項目名. */
+#controls dt {
+	float:left;
+	display:inline;
+	padding-right:0.7em;
+	margin-right:0.7em;
+	border-right:1px solid #444;
+	font-weight:bold;
+	font-style:italic;
+	color:#006090;
+}
+
+/* 項目の数値. */
+#controls dd {
+	margin:0px;
+	padding:0px;
+	font-size:1em;
+	vertical-align:middle;
+	color:#333333;
+}
+
+/* 項目の説明 */
+#controls .title {
+	float:left;
+	display:inline;
+	margin-right:0.6em;
+	color:#999;
+}
+
+/* スライダー */
+#controls .control {
+	position: relative;
+	border-left: 0px;
+	width:214px;
+	height:20px;
+}
+
+/* スライダーの溝 */
+#controls .control .bar {
+	position: absolute;
+	left:0px;
+	top:0px;
+	width:214px;
+	height:20px;
+	background: transparent url(data/slider-bar.gif) no-repeat 0px 9px;
+	cursor:pointer;
+	cursor: hand;
+}
+
+/* スライダーのつまみ */
+#controls .control .slider {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 20px;
+	height: 20px;
+	background: transparent url(data/slider.png) no-repeat 0px 0px;
+	*background: none;
+	filter:progid:DXImageTransform.Microsoft.AlphaImageLoder(enabled=true,sizingMethod=crop,src='data/slider.png');
+	cursor:pointer;
+	cursor:hand;
+}
+
+
+/* スライダーテスト */
+.js-slider {
+	position:relative;
+	width: 300px;
+	height: 20px;
+}
+
+.js-slider div {
+	background: #ddd;
+	height: 3px;
+	border: 1px inset #aaa;
+	position: relative;
+	top: 12px;
+	font-size: 0px;
+}
+
+.js-slider input {
+	position: absolute;
+	width: 15px;
+	height: 20px;
+	display: block;
+}
+
+
+
+
+
+/* ボタンデザインのテスト. */
+.btn {
+	text-decoration: none;
+	font-weight: bold;
+	text-align: center;
+	font-size: 13px;
+	display: block;
+	background: -moz-linear-gradient(top,#BFD9E5, #3D95B7 50%,#0080B3 50%,#0099CC);
+	background: -webkit-gradient(linear, left top, left bottom, from(#BFD9E5), color-stop(0.5,#3D95B7), color-stop(0.5,#0080B3), to(#0099CC));
+	color: #FFF;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+	border: 1px solid #0099CC;
+	-moz-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+	-webkit-box-shadow: 1px 1px 1px rgba(000,000,000,0.3),inset 0px 0px 3px rgba(255,255,255,0.5);
+	text-shadow: 0px 0px 3px rgba(0,0,0,0.5);
+	width: 100px;
+	padding: 10px 0;
+}
+
