@@ -31,7 +31,7 @@ var CourseObject = function() {
 
 	//	初期化.
 	this.initialize = function() {
-
+		
 	};
 
 	//	コース全長の取得.
