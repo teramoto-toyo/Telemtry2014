@@ -1,7 +1,5 @@
 @CHARSET "UTF-8";
 
-body { margin:40px 0 0 80px; }
-
 /* 属性クリア */
 .clear {
 	float:none;

@@ -148,7 +148,7 @@ var CourseObject = function() {
 		//	モードで処理を分ける.
 		switch(this.exec_mode) {
 		case 0:			//	読み込み開始.
-			loadCSV("data/nur24h_vln.csv");
+			loadCSV("data/nur24h.csv");
 			this.exec_mode++;
 			break;
 
