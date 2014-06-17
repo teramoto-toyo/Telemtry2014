@@ -294,6 +294,7 @@ var CourseObject = function() {
 
 	//	V座標からワールド座標に変換.
 	this.convCrsV2Pos = function(v) {
+		v = this.limitDis(v) 
 		//	V座標のテーブルのどこかを二分探索で求める.
 		var n0 = binary_search(this.crs_v, v);
 		var n1 = n0 + 1;

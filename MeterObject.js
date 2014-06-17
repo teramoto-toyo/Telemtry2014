@@ -362,7 +362,7 @@ function MeterObject() {
 			ctx.fillText("Yamauchi",  win_x - 50, win_y + pad);
 			ctx.fillText("Tobias",    win_x - 50, win_y + graph_diff_h  + pad);
 			ctx.fillText("Michael",   win_x - 50, win_y + graph_diff_h * 2 + pad);
-			ctx.fillText("Krumm",     win_x - 50, win_y + graph_diff_h * 3 + pad);
+			ctx.fillText("Jordan",     win_x - 50, win_y + graph_diff_h * 3 + pad);
 			
 			var four_diff = graph_diff_w*4;
 			ctx.fillText("Start",     win_x,                   win_y + height + 10);
@@ -417,21 +417,33 @@ function MeterObject() {
 			var wet_time = 10.5;
 			var dry_time = 9;
 			var wet_lap = 9;
-			var dry_lap = 8;
+			var dry_lap = 7;
 
 			var wet_stint = wet_time * wet_lap;
 			var dry_stint = dry_time * dry_lap;
 
+			// driver = 99：修理時間 98 : 赤旗
 
 			var stint_data = [
-				{ "driver" : 3, "time" : 66 },  { "driver" : 99, "time" : 280 },
-				{ "driver" : 1, "time" : 20 },  { "driver" : 98, "time" : 534 },
-				{ "driver" : 1, "time" : 112 }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : wet_stint+4 }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 0, "time" : 26 }, { "driver" : 99, "time" : 25 },
-				{ "driver" : 3, "time" : 83 }, { "driver" : 99, "time" : 60 },
-				{ "driver" : 1, "time" : 65 }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : wet_stint }, 
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 			];
 			
 			var cor = 0;

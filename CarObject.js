@@ -44,9 +44,10 @@ function CarObject() {
 		case 1:	//	実行処理.
 			//	移動処理.
 			
-			//this.crs_pos = fc.controller.getValue(0); // スライダーの値.
 			//	補間処理.
-			var target = work.course_obj.limitDis(work.db_lap_distance);
+            var v_value = work.db_lap_distance; 
+			//var v_value = document.getElementById("test_id").value; //テキストフォームの値
+			var target = work.course_obj.limitDis(v_value);
 
 			if (target < this.crs_pos)
 			{
@@ -56,6 +57,7 @@ function CarObject() {
 			  
 
 			this.crs_pos += (target - this.crs_pos)*0.02;
+			//this.crs_pos = v_value; //テキストフォームの値
 
 			//	リミッター.
 			this.crs_pos = work.course_obj.limitDis(this.crs_pos);
