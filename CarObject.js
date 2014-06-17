@@ -218,4 +218,3 @@ CarObject.prototype = {
 
 	exec_mode			: 0,
 	};
-

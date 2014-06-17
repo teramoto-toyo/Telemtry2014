@@ -91,6 +91,7 @@ var	SystemWork = function() {
 	this.car_obj		= null;				//	クルマオブジェクト.
 	this.meter_obj      = null;				//  メーターオブジェクト.
 	this.other_car_obj  = null;				//  他の車取得.
+	this.section_obj	= null;
 };
 
 var	sys_work = new SystemWork();			//	ワークの生成.
@@ -246,7 +247,7 @@ function initialize() {
 	sys_work.course_obj = new CourseObject();
 	sys_work.course_obj.initialize();
 	sys_work.game_obj.push(sys_work.course_obj);
-
+	
 	//  アザーカー.
 	//sys_work.other_car_obj = new OtherCarObject();
 	//sys_work.other_car_obj.initialize();
@@ -263,6 +264,10 @@ function initialize() {
 	sys_work.car_obj.initialize();
 	sys_work.game_obj.push(sys_work.car_obj);
 
+	//	セクション
+	sys_work.section_obj = new SectionObject();
+	sys_work.section_obj.initialize();
+	sys_work.game_obj.push(sys_work.section_obj);
 
 
 	//	ゲームモード初期化.
@@ -278,6 +283,7 @@ function initialize() {
       //sys_work.ctx.drawImage(overlay_img, 0, 0);
       sys_work.load_img = true;
     }
+	
 	
 };
 
