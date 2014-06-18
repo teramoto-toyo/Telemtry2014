@@ -92,6 +92,10 @@ var	SystemWork = function() {
 	this.meter_obj      = null;				//  メーターオブジェクト.
 	this.other_car_obj  = null;				//  他の車取得.
 	this.section_obj	= null;
+	
+	
+	//セクションデータ
+	this.section_json = null;
 };
 
 var	sys_work = new SystemWork();			//	ワークの生成.
@@ -215,11 +219,23 @@ window.onload = function() {
 	
 	// DB更新開始.
 	updateData();
-
+	
+	//サブループ
+	var count = 0;
+	var subLoop = function() {
+    	if(count >= 0) {
+    	    setTimeout(subLoop, 1000);
+		}
+		
+		$.getJSON("get_db_section_JSON.php", function(ret_json) {
+			sys_work.section_json = ret_json;
+		});
+	};
+	subLoop();
+	
 	//	ループ開始.
 	clearTimeout(sys_work.timer);
 	return sys_work.timer = setTimeout(main_loop, sys_work.interval);
-
 };
 
 // ２桁にする

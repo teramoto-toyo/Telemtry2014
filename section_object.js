@@ -154,7 +154,7 @@ var SectionObject = function() {
 
 	this.exec = function(work) {
 
-		updateVcoord(work);	
+		this.updateVcoord(work);	
 
 		if(work.game_mode > GAME_MODE.LOAD_COURSE) {
 
@@ -191,11 +191,14 @@ var SectionObject = function() {
 
 
 	this.updateVcoord = function(work) {
-		var i=0;
-		v_list[i][5]; // 最高速V
-		v_list[i][6]; // 最高速
-		v_list[i][7]; // ボトムV
-		v_list[i][8]; // ボトム速度
+		if(work.section_json) {
+			for (i =0; i < 12; i++) {
+				v_list[i][5] = work.section_json[i].max_speed_v; // 最高速V
+				v_list[i][6] = work.section_json[i].max_speed; // 最高速
+				v_list[i][7] = work.section_json[i].min_speed_v; // ボトムV
+				v_list[i][8] = work.section_json[i].min_speed; // ボトム速度
+			}
+		}
 	}
 
 	
