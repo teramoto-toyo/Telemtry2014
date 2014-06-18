@@ -4,20 +4,20 @@ var SectionObject = function() {
 	var init = false;
 	
 	var v_list = [
-				  [0,		135,	0,	0,  0,  0,  0,  0,  0,  5, 0], //
-	              [1600,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [2700,	290,	0,	-10, 20,  0,  0,  0,  0,  0, 0], //
-	              [4150,	345,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [5900,	215,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [7900,	220,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [9700,	315,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [13000,	330,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [15200,	330,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [17100,	310,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [18900,	120,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [20700,	30,	    1,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [21900,	145,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
-	              [25000,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0], //
+				  [0,		135,	0,	0,  0,  0,  0,  0,  0,  0, 0, 135], //
+	              [1600,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0, 315], //
+	              [2700,	290,	0,	-10, 20,  0,  0,  0,  0,  0, 0, 0, 270], //
+	              [4150,	345,	0,	0,  0,  0,  0,  0,  0,  0, 0, 345], //
+	              [5900,	215,	0,	0,  0,  0,  0,  0,  0,  0, 0, 215], //5
+	              [7900,	220,	0,	0,  0,  0,  0,  0,  0,  0, 0, 315], //
+	              [9700,	315,	0,	0,  0,  0,  0,  0,  0,  0, 0, 315], //
+	              [13000,	330,	0,	0,  0,  0,  0,  0,  0,  0, 0, 330], //
+	              [15200,	330,	0,	0,  0,  0,  0,  0,  0,  0, 0, 330], //
+	              [17100,	310,	0,	0,  0,  0,  0,  0,  0,  0, 0, 45], //10
+	              [18900,	120,	0,	0,  0,  0,  0,  0,  0,  0, 0, 120], //
+	              [20700,	30,	    1,	-20,  0,  0,  0,  0,  0,  0, 0,  30], //
+	              [21900,	145,	0,	0,  0,  0,  0,  0,  0,  0, 0, 145], //
+	              [25000,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0, 135], //
 	              ];
 
 	//	初期化.
@@ -42,7 +42,7 @@ var SectionObject = function() {
 	  ctx.translate(x, y);
 	  ctx.rotate(angle * Math.PI / 180);
 	  
-	  ctx.strokeStyle = 'rgb(10, 10, 10)';
+	  ctx.strokeStyle = 'rgba(172, 172, 196, 1.0)';
 	  ctx.lineWidth = 1;
 	  
 	  ctx.translate(-x, -y);
@@ -70,7 +70,7 @@ var SectionObject = function() {
 
 	  ctx.lineTo(x, y - 10);
 	  ctx.closePath();
-	  ctx.fillStyle = 'rgb(10, 10, 10)';
+	  ctx.fillStyle = 'rgba(172, 172, 196, 1.0)';
 	  ctx.fill();
 	  //ctx.stroke();
 	  	  
@@ -100,13 +100,24 @@ var SectionObject = function() {
 	};
 	
 
-	this.drawSpeedMarker = function(ctx, i, x, y, angle, text, is_highspeed) {
+	this.drawSpeedMarker = function(ctx, i, x, y, angle, speed, is_highspeed) {
 	  ctx.save();
 
 	  ctx.translate(x, y);
 	  ctx.rotate(angle * Math.PI / 180);
 	  
-	  ctx.strokeStyle = 'rgba(200, 0, 0, 0.7)';
+	  if (is_highspeed)
+	  {
+	  	ctx.strokeStyle = 'rgba(200, 0, 0, 1.0)';
+	  	ctx.fillStyle   = 'rgba(200, 0, 0, 1.0)';
+	  }
+	  else
+	  {
+	  	ctx.strokeStyle = 'rgba(0, 0, 100, 1.0)';
+	  	ctx.fillStyle   = 'rgba(0, 0, 100, 1.0)';
+	  }
+
+	  
 	  ctx.lineWidth = 1;
 	  
 	  ctx.translate(-x, -y);
@@ -114,38 +125,45 @@ var SectionObject = function() {
 	  // まっすぐ線
 	  ctx.beginPath();
 	  ctx.moveTo(x, y);
-	  ctx.lineTo(x, y - 25);
+	  ctx.lineTo(x, y - 45);
 	  ctx.closePath();
 	  ctx.lineWidth = 2;
 	  ctx.stroke();
 	  
 	  // ○
-	  ctx.fillStyle = 'rgba(200, 0, 0, 0.7)';
 	  ctx.beginPath();
-	  ctx.arc(x, y -40 , 15, 0, Math.PI*2, false);
-	  //ctx.fill();
-	  ctx.stroke();
+	  ctx.arc(x, y - 60 , 15, 0, Math.PI*2, false);
+	  ctx.fill();
+	  //ctx.stroke();
 	  	  
 	  ctx.restore();
 
-	  if (text != null) {
+	  if (speed != null) {
 	  	ctx.save();
 
 	  	ctx.translate(x, y);
 	    ctx.rotate(angle * Math.PI / 180);
 
-		ctx.translate(15, - 30);
+		ctx.translate(0, - 60);
 
 	    ctx.rotate(-angle * Math.PI / 180);
+
+	    ctx.translate(-12, 5);
 	    	    
 	    ctx.font = '14px Arial';
-	    ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+	    ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
 
+ 
+	    //var ofs_x = v_list[i][9];
+	    //var ofs_y = v_list[i][10];
 
-	    var ofs_x = v_list[i][9];
-	    var ofs_y = v_list[i][10];
+	    var ofs_x = 0;
+	    var ofs_y = 0;
 
-	    ctx.fillText(text,ofs_x, ofs_y);
+	    if (speed < 100)
+	  		ofs_x +=4;
+
+	    ctx.fillText(speed ,ofs_x, ofs_y);
 
 	    ctx.restore();
 	  }
@@ -217,15 +235,27 @@ var SectionObject = function() {
 	    this.drawSectionMarker(ctx, i, x, y, angle, text);
 
 	    // 最高速
+	    angle = v_list[i][11];
 	    if (v_list[i][6] > 0)
 	    {
 			x = this.max_pos_list[i].x * scale;
 			y = this.max_pos_list[i].y * scale;
 
-			var speed = v_list[i][6]; 
+			var speed =  Math.round(v_list[i][6]); 
 
 	    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, true);
 	    }
+	    // ボトム
+	    if (v_list[i][8] > 0)
+	    {
+			x = this.min_pos_list[i].x * scale;
+			y = this.min_pos_list[i].y * scale;
+
+			var speed =  Math.round(v_list[i][8]); 
+
+	    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, false);
+	    }
+
 	  }
 	};
 
