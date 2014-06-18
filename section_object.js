@@ -153,6 +153,9 @@ var SectionObject = function() {
 
 
 	this.exec = function(work) {
+
+		updateVcoord(work);	
+
 		if(work.game_mode > GAME_MODE.LOAD_COURSE) {
 
 			if (!init)
@@ -185,6 +188,16 @@ var SectionObject = function() {
 		}
 //		console.log(w_pos);
 	};
+
+
+	this.updateVcoord = function(work) {
+		var i=0;
+		v_list[i][5]; // 最高速V
+		v_list[i][6]; // 最高速
+		v_list[i][7]; // ボトムV
+		v_list[i][8]; // ボトム速度
+	}
+
 	
 	this.draw = function(ctx, scale) {
 	  
