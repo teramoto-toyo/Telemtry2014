@@ -46,7 +46,7 @@ function MeterObject() {
 		// main_meter.
 		self.drawTemp (ctx, scale);
 		self.drawG (ctx, scale);
-//		self.drawGas (ctx, scale);
+		self.drawGas (ctx, scale);
 		self.drawStint (ctx, scale);
 	};
 
