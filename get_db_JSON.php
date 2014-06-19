@@ -23,7 +23,7 @@
 		$gear = $row['gear'];
 		$steered_angle = $row['steered_angle'];
 		$engine_rpm = $row['engine_rpm'];
-		$fuel_used  = $row['fuel_used'];
+		$fuel_used  = $row['fuel_used_ecu'];
 		$eng_temp = $row['eng_temp'];
 		$eng_oil_temp = $row['eng_oil_temp'];
 		$gbox_oil_temp = $row['gbox_oil_temp'];
