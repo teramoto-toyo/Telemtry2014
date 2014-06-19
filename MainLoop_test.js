@@ -227,9 +227,47 @@ window.onload = function() {
     	    setTimeout(subLoop, 1000);
 		}
 		
+		//セクション情報更新
 		$.getJSON("get_db_section_JSON.php", function(ret_json) {
 			sys_work.section_json = ret_json;
 		});
+		
+		//セクションテーブル更新
+		if(sys_work.section_json) {
+			$('#section_data_table').empty();
+			$('#section_data_table').append(
+				$("<tr></tr>")				.append($('<th class="name"></th>').text("Name"))
+				.append($('<th></th>').text("Lap"))
+				.append($('<th></th>').text("Driver"))
+				.append($('<th></th>').text("Max"))
+				.append($('<th></th>').text("Min"))
+				.append($('<th></th>').text("Max G"))
+				.append($('<th colspan="4" class="tire"></th>').text("Tire Temp FL/FR/RL/RR"))
+				.append($('<th colspan="4" class="tire"></th>').text("Tire Press FL/FR/RL/RR"))
+				.append($('<th class="name"></th>').text("datetime"))
+			);
+			
+			jQuery.each(sys_work.section_json, function() {
+				$('#section_data_table').append(
+					$("<tr></tr>")					.append('<td class="name">' + this.section_index + ' : ' + this.section_name + '</td>')
+					.append('<td>' + this.lap_number + '</td>')
+					.append('<td>' + this.driver_index + '</td>')
+					.append('<td>' + this.max_speed + '</td>')
+					.append('<td>' + this.min_speed + '</td>')
+					.append('<td>' + this.max_g + '</td>')
+					.append('<td>' + this.tyre_temp_fl.toFixed(1) + '</td>')
+					.append('<td>' + this.tyre_temp_fr.toFixed(1) + '</td>')
+					.append('<td>' + this.tyre_temp_rl.toFixed(1) + '</td>')
+					.append('<td>' + this.tyre_temp_rr.toFixed(1) + '</td>')
+					.append('<td>' + this.tyre_press_fl + '</td>')
+					.append('<td>' + this.tyre_press_fr + '</td>')
+					.append('<td>' + this.tyre_press_rl + '</td>')
+					.append('<td>' + this.tyre_press_rr + '</td>')
+					.append('<td>' + this.datetime + '</td>')
+
+				);
+			});
+		}
 	};
 	subLoop();
 	
@@ -275,15 +313,15 @@ function initialize() {
 	sys_work.meter_obj.initialize();
 	sys_work.game_obj.push(sys_work.meter_obj);
 
-	//	クルマ.
-	sys_work.car_obj = new CarObject();
-	sys_work.car_obj.initialize();
-	sys_work.game_obj.push(sys_work.car_obj);
-
 	//	セクション
 	sys_work.section_obj = new SectionObject();
 	sys_work.section_obj.initialize();
 	sys_work.game_obj.push(sys_work.section_obj);
+
+	//	クルマ.
+	sys_work.car_obj = new CarObject();
+	sys_work.car_obj.initialize();
+	sys_work.game_obj.push(sys_work.car_obj);
 
 
 	//	ゲームモード初期化.
