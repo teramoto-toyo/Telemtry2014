@@ -6,7 +6,7 @@
 	if (!($cn = mysql_pconnect($sql_server, $sql_user, $sql_pw))) { echo "db connect error"; die; }
 	if (!(mysql_select_db($sql_db))) { echo "db connect error"; die; }
 	
-	$sql = "SELECT a.* FROM nur2014_section a WHERE a.datetime = (SELECT MAX(b.datetime) FROM nur2014_section b WHERE b.section_index = a.section_index) ORDER BY a.section_index ASC";
+	$sql = "SELECT a.* FROM nur2014_section a WHERE a.id = (SELECT MAX(b.id) FROM nur2014_section b WHERE b.section_index = a.section_index) ORDER BY a.section_index ASC";
 	if (!($rs = mysql_query($sql))) { echo "db query error"; die; }
 
 	mb_http_output( 'UTF-8' );
@@ -29,10 +29,10 @@
 		$min_speed_v	= $row['min_speed_v'];
 		$max_g			= $row['max_g'];
 		$max_g_v		= $row['max_g_v'];
-		$tyre_temp_fl	= $row['tyre_temp_fl'];
-		$tyre_temp_fr	= $row['tyre_temp_fr'];
-		$tyre_temp_rl	= $row['tyre_temp_rl'];
-		$tyre_temp_rr	= $row['tyre_temp_rr'];
+		$tyre_temp_fl	= $row['tyre_temp_fl_in'];
+		$tyre_temp_fr	= $row['tyre_temp_fr_in'];
+		$tyre_temp_rl	= $row['tyre_temp_rl_in'];
+		$tyre_temp_rr	= $row['tyre_temp_rr_in'];
 		$tyre_press_fl	= $row['tyre_press_fl'];
 		$tyre_press_fr	= $row['tyre_press_fr'];
 		$tyre_press_rl	= $row['tyre_press_rl'];
@@ -59,9 +59,9 @@
 			'"max_g":'			. $max_g . ', ' .
 			'"max_g_v":'		. $max_g_v . ', ' .
 			'"tyre_temp_fl":'	. $tyre_temp_fl . ', ' .
-			'"tyre_press_fr":'	. $tyre_press_fr . ', ' .
-			'"tyre_press_rl":'	. $tyre_press_rl . ', ' .
-			'"tyre_press_rr":'	. $tyre_press_rr . ', ' .
+			'"tyre_temp_fr":'	. $tyre_temp_fr . ', ' .
+			'"tyre_temp_rl":'	. $tyre_temp_rl . ', ' .
+			'"tyre_temp_rr":'	. $tyre_temp_rr . ', ' .
 			'"tyre_press_fl":'	. $tyre_press_fl . ', ' .
 			'"tyre_press_fr":'	. $tyre_press_fr . ', ' .
 			'"tyre_press_rl":'	. $tyre_press_rl . ', ' .
