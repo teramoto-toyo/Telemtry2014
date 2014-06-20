@@ -163,7 +163,9 @@ var SectionObject = function() {
 	    if (speed < 100)
 	  		ofs_x +=4;
 
-	    ctx.fillText(speed ,ofs_x, ofs_y);
+	  	vat text = "i:" + i + "speed:" + speed;
+
+	    ctx.fillText(text, ofs_x, ofs_y);
 
 	    ctx.restore();
 	  }
@@ -222,41 +224,48 @@ var SectionObject = function() {
 	
 	this.draw = function(ctx, scale) {
 	  
-	  for (var i = 0; i < this.w_pos_list.length; i++) {
-		var x = this.w_pos_list[i].x * scale;
-		var y = this.w_pos_list[i].y * scale;
+		for (var i = 0; i < this.w_pos_list.length; i++) {
+			var x = this.w_pos_list[i].x * scale;
+			var y = this.w_pos_list[i].y * scale;
 
-	    //var angle = document.getElementById("test_id").value;
-	    var angle = v_list[i][1];
-	    var text = (i + 1).toString();
-	    var textOffsetX = 30;
-	    var textOffsetY = 30;
-	    
-	    this.drawSectionMarker(ctx, i, x, y, angle, text);
+		    //var angle = document.getElementById("test_id").value;
+		    var angle = v_list[i][1];
+		    var text = (i + 1).toString();
+		    var textOffsetX = 30;
+		    var textOffsetY = 30;
+		    
+		    this.drawSectionMarker(ctx, i, x, y, angle, text);
+		}
 
-	    // 最高速
-	    angle = v_list[i][11];
-	    if (v_list[i][6] > 0)
-	    {
-			x = this.max_pos_list[i].x * scale;
-			y = this.max_pos_list[i].y * scale;
+		var ct = 0
+		for (var i = 0; i < 13; i++)
+		{
+		    // 最高速
+		    angle = v_list[i][11];
 
-			var speed =  Math.round(v_list[i][6]); 
+		    if (v_list[i][6] > 0)
+		    {
+				x = this.max_pos_list[i].x * scale;
+				y = this.max_pos_list[i].y * scale;
 
-	    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, true);
-	    }
-	    // ボトム
-	    if (v_list[i][8] > 0)
-	    {
-			x = this.min_pos_list[i].x * scale;
-			y = this.min_pos_list[i].y * scale;
+				var speed =  Math.round(v_list[i][6]); 
 
-			var speed =  Math.round(v_list[i][8]); 
+		    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, true);
+		    	ct++;
+		    }
 
-	    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, false);
-	    }
+		    // ボトム
+		    if (v_list[i][8] > 0)
+		    {
+				x = this.min_pos_list[i].x * scale;
+				y = this.min_pos_list[i].y * scale;
 
-	  }
+				var speed =  Math.round(v_list[i][8]); 
+
+		    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, false);
+		    }
+		}
+		console.log(ct);
 	};
 
 };

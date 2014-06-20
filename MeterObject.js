@@ -426,18 +426,15 @@ function MeterObject() {
 
 			var stint_data = [
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
@@ -445,7 +442,10 @@ function MeterObject() {
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 			];
 			
