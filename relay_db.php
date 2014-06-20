@@ -22,8 +22,15 @@ Data Relaying...<br />
 	$section_sql = "SELECT a.* FROM nur2014_section a WHERE a.id = (SELECT MAX(b.id) FROM nur2014_section b WHERE b.section_index = a.section_index) ORDER BY a.section_index ASC";
 	if (!($rs = mysql_query($section_sql))) { echo "db query error"; die; }
 	mb_http_output( 'UTF-8' );
-	$data2 = mysql_fetch_array( $rs, MYSQL_BOTH );
 	
+//	$data2 = mysql_fetch_array( $rs, MYSQL_BOTH );
+	$date2 = array();
+	while( $row = mysql_fetch_array( $rs, MYSQL_BOTH ) ){
+		$data2[] = $row;
+	}
+	
+//	var_dump($data2);
+
 	$url = 'http://66.147.244.133/~sdogjp/nur2014/relay_catch.php';
 	$data = array($data1, $data2);
 	$options = array('http' => array(
