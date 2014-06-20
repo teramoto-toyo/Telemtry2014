@@ -18,15 +18,14 @@ Data Relaying...<br />
 	mb_http_output( 'UTF-8' );
 	$data1 = mysql_fetch_array( $rs, MYSQL_BOTH );
 	
-//	//最新のセクションデータ取得
-//	$section_sql = "SELECT a.* FROM nur2014_section a WHERE a.id = (SELECT MAX(b.id) FROM nur2014_section b WHERE b.section_index = a.section_index) ORDER BY a.section_index ASC";
-//	if (!($rs = mysql_query($section_sql))) { echo "db query error"; die; }
-//	mb_http_output( 'UTF-8' );
-//	$data2 = mysql_fetch_array( $rs, MYSQL_BOTH );
+	//最新のセクションデータ取得
+	$section_sql = "SELECT a.* FROM nur2014_section a WHERE a.id = (SELECT MAX(b.id) FROM nur2014_section b WHERE b.section_index = a.section_index) ORDER BY a.section_index ASC";
+	if (!($rs = mysql_query($section_sql))) { echo "db query error"; die; }
+	mb_http_output( 'UTF-8' );
+	$data2 = mysql_fetch_array( $rs, MYSQL_BOTH );
 	
-	$url = 'http://66.147.244.133/~sdogjp/nur2014/relay_test.php';
-//	$data = array($data1, $data2);
-	$data = $data1;
+	$url = 'http://66.147.244.133/~sdogjp/nur2014/relay_catch.php';
+	$data = array($data1, $data2);
 	$options = array('http' => array(
 	    'method' => 'POST',
 	    'content' => http_build_query($data),
@@ -37,6 +36,3 @@ Data Relaying...<br />
 ?>
 </body>
 </html>
-
- 
- 

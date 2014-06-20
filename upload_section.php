@@ -20,10 +20,18 @@
 	$min_speed_v	= GetData('min_speed_v');
 	$max_g			= GetData('max_g');
 	$max_g_v		= GetData('max_g_v');
-	$tyre_temp_fl	= GetData('tyre_temp_fl');
-	$tyre_temp_fr	= GetData('tyre_temp_fr');
-	$tyre_temp_rl	= GetData('tyre_temp_rl');
-	$tyre_temp_rr	= GetData('tyre_temp_rr');
+	$tyre_temp_fl_in	= GetData('tyre_temp_fl_in');
+	$tyre_temp_fr_in	= GetData('tyre_temp_fr_in');
+	$tyre_temp_rl_in	= GetData('tyre_temp_rl_in');
+	$tyre_temp_rr_in	= GetData('tyre_temp_rr_in');
+	$tyre_temp_fl_ce	= GetData('tyre_temp_fl_ce');
+	$tyre_temp_fr_ce	= GetData('tyre_temp_fr_ce');
+	$tyre_temp_rl_ce	= GetData('tyre_temp_rl_ce');
+	$tyre_temp_rr_ce	= GetData('tyre_temp_rr_ce');
+	$tyre_temp_fl_ot	= GetData('tyre_temp_fl_ot');
+	$tyre_temp_fr_ot	= GetData('tyre_temp_fr_ot');
+	$tyre_temp_rl_ot	= GetData('tyre_temp_rl_ot');
+	$tyre_temp_rr_ot	= GetData('tyre_temp_rr_ot');
 	$tyre_press_fl	= GetData('tyre_press_fl');
 	$tyre_press_fr	= GetData('tyre_press_fr');
 	$tyre_press_rl	= GetData('tyre_press_rl');
@@ -41,7 +49,7 @@
 
 	if (!(mysql_select_db($sql_db))) { die; }
 
-	$sql = "insert into nur2014_section (section_index, lap_number, driver_index, section_name, start_v, end_v, in_section, max_speed, max_speed_v, min_speed, min_speed_v, max_g, max_g_v, tyre_temp_fl, tyre_temp_fr, tyre_temp_rl, tyre_temp_rr, tyre_press_fl, tyre_press_fr, tyre_press_rl, tyre_press_rr, datetime) values ( '$sction_index', '$lap_number', '$driver_index', '$section_name', '$start_v', '$end_v', '$in_section', '$max_speed', '$max_speed_v', '$min_speed', '$min_speed_v', '$max_g', '$max_g_v', '$tyre_temp_fl', '$tyre_temp_fr', '$tyre_temp_rl', '$tyre_temp_rr', '$tyre_press_fl', '$tyre_press_fr', '$tyre_press_rl', '$tyre_press_rr', '$datetime')";
+	$sql = "insert into nur2014_section (section_index, lap_number, driver_index, section_name, start_v, end_v, in_section, max_speed, max_speed_v, min_speed, min_speed_v, max_g, max_g_v, tyre_temp_fl_in, tyre_temp_fr_in, tyre_temp_rl_in, tyre_temp_rr_in, tyre_temp_fl_ce, tyre_temp_fr_ce, tyre_temp_rl_ce, tyre_temp_rr_ce, tyre_temp_fl_ot, tyre_temp_fr_ot, tyre_temp_rl_ot, tyre_temp_rr_ot, tyre_press_fl, tyre_press_fr, tyre_press_rl, tyre_press_rr, datetime) values ( '$sction_index', '$lap_number', '$driver_index', '$section_name', '$start_v', '$end_v', '$in_section', '$max_speed', '$max_speed_v', '$min_speed', '$min_speed_v', '$max_g', '$max_g_v', '$tyre_temp_fl_in', '$tyre_temp_fr_in', '$tyre_temp_rl_in', '$tyre_temp_rr_in', '$tyre_temp_fl_ce', '$tyre_temp_fr_ce', '$tyre_temp_rl_ce', '$tyre_temp_rr_ce', '$tyre_temp_fl_ot', '$tyre_temp_fr_ot', '$tyre_temp_rl_ot', '$tyre_temp_rr_ot', '$tyre_press_fl', '$tyre_press_fr', '$tyre_press_rl', '$tyre_press_rr', '$datetime')";
 
 
 /*
