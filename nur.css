@@ -1,6 +1,15 @@
 @CHARSET "UTF-8";
+/* RESET */
+html,body,div,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,pre,form,p,a,blockquote,fieldset,input,abbr,article,aside,command,details,figcaption,figure,footer,header,hgroup,mark,meter,nav,output,progress,section,summary,time { margin: 0; padding: 0; line-height:1.6; outline:none; background:transparent no-repeat; }
+h1,h2,h3,h4,h5,h6,pre,code,address,caption,cite,code,em,strong,th,figcaption { font-size: 1em; font-weight: normal; font-style: normal; }
+fieldset,iframe { border: none; }
+caption,th { text-align: left; }
+table { /*border-collapse: collapse;*/ border-spacing: 0; }
+article,aside,footer,header,hgroup,nav,section,figure,figcaption { display: block; }
+body img { border:none; vertical-align:top; }
+strong { font-weight:bold; }
 
-body { width:1920px; }
+body { width:1920px; margin:0; background-color:#DCE4EA; }
 
 /* 属性クリア */
 .clear {
@@ -162,14 +171,14 @@ body { width:1920px; }
 
 table.canvas {
 	float:left;
-	margin-right:10px;
+	margin-right:0;
 }
 
 div#right_module {
 	float:left;
 	padding:4px 10px 0 0;
 }
-table#section_data_table { font-size:12px; }
+table#section_data_table { font-size:12px; position:absolute; top:10px; left:1000px; }
 table#section_data_table th,
 table#section_data_table td { padding:4px 4px; }
 table#section_data_table th { text-align:right; }
