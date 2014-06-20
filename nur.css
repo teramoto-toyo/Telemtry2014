@@ -1,5 +1,7 @@
 @CHARSET "UTF-8";
 
+body { width:1920px; }
+
 /* 属性クリア */
 .clear {
 	float:none;
@@ -136,10 +138,6 @@
 	display: block;
 }
 
-
-
-
-
 /* ボタンデザインのテスト. */
 .btn {
 	text-decoration: none;
@@ -161,3 +159,21 @@
 	padding: 10px 0;
 }
 
+
+table.canvas {
+	float:left;
+	margin-right:10px;
+}
+
+div#right_module {
+	float:left;
+	padding:4px 10px 0 0;
+}
+table#section_data_table { font-size:12px; }
+table#section_data_table th,
+table#section_data_table td { padding:4px 4px; }
+table#section_data_table th { text-align:right; }
+table#section_data_table th.name { text-align:left; }
+table#section_data_table th.tire { text-align:center; } 
+table#section_data_table td { text-align:right; }
+table#section_data_table td.name { text-align:left; }
