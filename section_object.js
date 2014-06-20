@@ -17,8 +17,9 @@ var SectionObject = function() {
 	              [18900,	120,	0,	0,  0,  0,  0,  0,  0,  0, 0, 120], //
 	              [20700,	30,	    1,	-20,  0,  0,  0,  0,  0,  0, 0,  30], //
 	              [21900,	145,	0,	0,  0,  0,  0,  0,  0,  0, 0, 145], //
-	              [25000,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0, 135], //
 	              ];
+
+	//  [25000,	135,	0,	0,  0,  0,  0,  0,  0,  0, 0, 135], //
 
 	//	初期化.
 	this.initialize = function() {
@@ -163,7 +164,8 @@ var SectionObject = function() {
 	    if (speed < 100)
 	  		ofs_x +=4;
 
-	  	var text = i + ":" + speed;
+	  	//var text = i + ":" + speed;
+	  	var text = speed;
 
 	    ctx.fillText(text, ofs_x, ofs_y);
 
@@ -198,12 +200,6 @@ var SectionObject = function() {
 			for (var i = 0; i < v_list.length; i++)
 				{
 					v = v_list[i][5];
-					if (i==13)
-				    {
-				    	console.log(v_list[i][5]);
-				    	console.log(v_list[i][6]);
-				    }
-
 					w_pos = work.course_obj.convCrsDis2Pos(v);
 					this.max_pos_list.push(w_pos);
 
@@ -247,7 +243,7 @@ var SectionObject = function() {
 		//console.log(this.max_pos_list.length);
 		//console.log(this.min_pos_list.length);
 
-		for (var i = 0; i < 14; i++)
+		for (var i = 0; i < v_list.length; i++)
 		{
 		    // 最高速
 		    angle = v_list[i][11];
