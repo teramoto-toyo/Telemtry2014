@@ -45,7 +45,7 @@ function CarObject() {
 			//	移動処理.
 			
 			//	補間処理.
-            var v_value = work.db_lap_distance; 
+            var v_value = work.db_lap_distance + document.getElementById("test_id").value; 
 			//var v_value = document.getElementById("test_id").value; //テキストフォームの値
 			var target = work.course_obj.limitDis(v_value);
 
@@ -54,7 +54,19 @@ function CarObject() {
 				target = 0;
 				this.crs_pos = 0;
 			}
-			  
+
+			// 異常なV更新
+			if (v_value == 0 && this.warning_v == 0)
+			{
+				if( this.old_v > 500 && this.old_v < 240000 )
+				{
+					// old_vがおかしい
+					this.warning_v = this.old_v;
+					this.warning_speed = this.old_speed;
+					//	描画座用に変換する.
+					this.warning_w_pos = work.course_obj.convCrsDis2Pos(this.warning_v);
+				}
+			}
 
 			this.crs_pos += (target - this.crs_pos)*0.02;
 			//this.crs_pos = v_value; //テキストフォームの値
@@ -79,7 +91,13 @@ function CarObject() {
 			
 			// Lap distance
 			this.d_lap_distance = work.db_lap_distance;
-			
+
+			// 旧V
+			if (this.warning_v == 0)
+			{
+				this.old_crs_v = v_value;
+				this.old_speed = this.velocity;
+			}
 			break;
 		}
 	};
@@ -185,19 +203,96 @@ function CarObject() {
 			ctx.arc(this.w_pos.x * scale, this.w_pos.y * scale, this.anim_rate*30, 0, Math.PI*2, false);
 		 	ctx.stroke();
 
+		 	// warning
+		 	if (this.warning_v > 0)
+		 	{
+		 		this.drawWraningV (ctx, scale);
+		 	}
 		}
 	};
+
+	// warning
+	this.drawWraningV = function(ctx, scale) {
+		if(this.exec_mode == 1) {
+
+		 	// ウィンドウ.
+		 	var window_w = 180;
+		 	var window_h = 70;
+		 	var window_x = this.warning_w_pos.x * scale + 20.0;
+		 	var window_y = this.warning_w_pos.y * scale -20.0;
+
+		 	ctx.strokeStyle = 'rgba(32, 32, 32, 0.7)';
+		 	ctx.lineWidth = 2;
+
+            ctx.beginPath();
+			ctx.moveTo(this.warning_w_pos.x * scale, this.warning_w_pos.y * scale);
+			ctx.lineTo(window_x, window_y);
+			ctx.stroke();
+
+		 	ctx.fillStyle = 'rgba(32, 32, 32, 0.7)';
+            ctx.beginPath();
+		 	ctx.fillRect(window_x, window_y - window_h, window_w, window_h);
+
+    		//	テキスト描画.
+    		var l_pad = 5;
+    		ctx.fillStyle = 'rgba(255, 255, 255, 1.0)';
+
+    		//	自車のときの表示.
+    		if(this.car_num == 0) {
+
+    			ctx.font="20px Arial";
+    			ctx.fillText("GT-R",  window_x + l_pad, window_y - window_h + 20);
+    			ctx.fillText((this.warning_speed).toFixed(0) + "km/h",  window_x + l_pad, window_y - window_h + 20*2);
+    			ctx.fillText(this.warning_v + "m",  window_x + l_pad, window_y - window_h + 20*3);
+    			ctx.font="18px Arial";
+    			ctx.fillText("STOP?", window_x + 90, window_y-window_h + 20*2);
+    		}
+
+
+			//	●の描画.
+			ctx.fillStyle = 'rgba(255, 0, 128, 1.0)';
+			
+			ctx.beginPath();
+			ctx.arc(this.warning_w_pos.x * scale, this.warning_w_pos.y * scale, 8, 0, Math.PI*2, false);
+			ctx.fill();
+
+            
+            // 点滅.
+            this.anim_rate += (1.0 - this.anim_rate) * 0.08;
+            this.anim_cnt++;
+            if (this.anim_cnt>60*2)
+            {
+            	this.anim_cnt = 0;
+            	this.anim_rate = 0;
+            }
+            //ctx.strokeStyle = 'rgba(255, 0, 128, 1.0)';
+            var alpha = (1.0-this.anim_rate);
+            ctx.strokeStyle = 'rgba(255, 0, 128,' + alpha + ')';
+		    ctx.lineWidth = 15*(1.0-this.anim_rate);
+            ctx.beginPath();
+			ctx.arc(this.warning_w_pos.x * scale, this.warning_w_pos.y * scale, this.anim_rate*30, 0, Math.PI*2, false);
+		 	ctx.stroke();
+		 }
+	};
 };
+
 
 
 CarObject.prototype = {
 	car_num				: 0,
 	w_pos				: new Vector2(),	//	ワールド座標.
 
+
 	crs_pos				: 0,				//	コース上の位置(実距離)
 	old_crs_pos			: 0,				//	前回のコース上の位置.
 	velocity			: 0,				//	移動速度.
 	gear                : 1,				//  ギヤ.
+
+	old_v               : 0,
+	old_speed           : 0,
+	warning_v           : 0,
+	warning_speed       : 0,
+	warning_w_pos       : new Vector2(),	//  ワーニング座標.
 
 	crs_v				: 0,				//	V座標.
 	old_crs_v			: 0,				//	前回のV座標.
