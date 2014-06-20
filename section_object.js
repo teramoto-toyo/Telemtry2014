@@ -163,7 +163,7 @@ var SectionObject = function() {
 	    if (speed < 100)
 	  		ofs_x +=4;
 
-	  	vat text = "i:" + i + "speed:" + speed;
+	  	var text = "i:" + i + "speed:" + speed;
 
 	    ctx.fillText(text, ofs_x, ofs_y);
 
@@ -212,7 +212,7 @@ var SectionObject = function() {
 
 	this.updateVcoord = function(work) {
 		if(work.section_json) {
-			for (i =0; i < 12; i++) {
+			for (i =0; i < work.section_json.length; i++) {
 				v_list[i][5] = work.section_json[i].max_speed_v; // 最高速V
 				v_list[i][6] = work.section_json[i].max_speed; // 最高速
 				v_list[i][7] = work.section_json[i].min_speed_v; // ボトムV
@@ -265,7 +265,6 @@ var SectionObject = function() {
 		    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, false);
 		    }
 		}
-		console.log(ct);
 	};
 
 };
