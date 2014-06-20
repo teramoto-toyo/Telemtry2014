@@ -515,7 +515,7 @@ function MeterObject() {
 
 					ctx.fillText(driver_name, stint_x+5, stint_y+10);
 
-					var stint_hour_val = min_cnt/60 + 17;
+					var stint_hour_val = min_cnt/60 + 16;
 					if (stint_hour_val>=24)
 						stint_hour_val -= 24;
 
