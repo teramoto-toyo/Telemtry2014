@@ -45,7 +45,8 @@ function CarObject() {
 			//	移動処理.
 			
 			//	補間処理.
-            var v_value = work.db_lap_distance + document.getElementById("test_id").value; 
+            //var v_value = work.db_lap_distance + document.getElementById("test_id").value;
+            var v_value = work.db_lap_distance; 
 			//var v_value = document.getElementById("test_id").value; //テキストフォームの値
 			var target = work.course_obj.limitDis(v_value);
 
@@ -58,10 +59,10 @@ function CarObject() {
 			// 異常なV更新
 			if (v_value == 0 && this.warning_v == 0)
 			{
-				if( this.old_v > 500 && this.old_v < 240000 )
+				if( this.old_crs_v > 500 && this.old_crs_v < 240000 )
 				{
 					// old_vがおかしい
-					this.warning_v = this.old_v;
+					this.warning_v = this.old_crs_v;
 					this.warning_speed = this.old_speed;
 					//	描画座用に変換する.
 					this.warning_w_pos = work.course_obj.convCrsDis2Pos(this.warning_v);
@@ -288,7 +289,6 @@ CarObject.prototype = {
 	velocity			: 0,				//	移動速度.
 	gear                : 1,				//  ギヤ.
 
-	old_v               : 0,
 	old_speed           : 0,
 	warning_v           : 0,
 	warning_speed       : 0,

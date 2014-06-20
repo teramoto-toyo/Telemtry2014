@@ -373,13 +373,13 @@ function MeterObject() {
 			ctx.fillText("20",     win_x + four_diff * 5 - 5,      win_y + height + 10);
 			ctx.fillText("goal",   win_x + four_diff * 6 - 20,     win_y + height + 10);
 			
-			ctx.fillText("17:00",     win_x,                   win_y + height + 20);
-			ctx.fillText("21:00",      win_x + four_diff - 5,          win_y + height + 20);
-			ctx.fillText("1:00",      win_x + four_diff * 2 - 5,      win_y + height + 20);
-			ctx.fillText("5:00",     win_x + four_diff * 3 - 5,      win_y + height + 20);
-			ctx.fillText("9:00",     win_x + four_diff * 4 - 5,      win_y + height + 20);
-			ctx.fillText("13:00",     win_x + four_diff * 5 - 5,      win_y + height + 20);
-			ctx.fillText("17:00",   win_x + four_diff * 6 - 20,     win_y + height + 20);
+			ctx.fillText("16:00",     win_x,                   win_y + height + 20);
+			ctx.fillText("20:00",      win_x + four_diff - 5,          win_y + height + 20);
+			ctx.fillText("0:00",      win_x + four_diff * 2 - 5,      win_y + height + 20);
+			ctx.fillText("4:00",     win_x + four_diff * 3 - 5,      win_y + height + 20);
+			ctx.fillText("8:00",     win_x + four_diff * 4 - 5,      win_y + height + 20);
+			ctx.fillText("12:00",     win_x + four_diff * 5 - 5,      win_y + height + 20);
+			ctx.fillText("16:00",   win_x + four_diff * 6 - 20,     win_y + height + 20);
 
 
 
@@ -425,6 +425,17 @@ function MeterObject() {
 			// driver = 99：修理時間 98 : 赤旗
 
 			var stint_data = [
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
@@ -432,21 +443,10 @@ function MeterObject() {
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
-				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 			];
 			
 			var cor = 0;
@@ -503,7 +503,17 @@ function MeterObject() {
 				if (stint_width > 20)
 				{
 					ctx.fillStyle = 'rgba(255, 255, 255, 1.0)';
-					ctx.fillText(stint_time + "min", stint_x+5, stint_y+10);
+					//ctx.fillText(stint_time + "min", stint_x+5, stint_y+10);
+
+					var driver_name = "YM";
+					if(stint_data[i].driver == 1)
+					  driver_name = "TS";
+					else if(stint_data[i].driver == 2)
+					  driver_name = "MS";
+					else if(stint_data[i].driver == 3)
+					  driver_name = "JT";
+
+					ctx.fillText(driver_name, stint_x+5, stint_y+10);
 
 					var stint_hour_val = min_cnt/60 + 17;
 					if (stint_hour_val>=24)
@@ -521,7 +531,7 @@ function MeterObject() {
 			
 			// 現在時刻バー
 			var local_time = new Date ();
-			var goal_time =  new Date (2013, 4, 20, 17, 00, 00);
+			var goal_time =  new Date (2014, 6, 21, 16, 00, 00);
 			var rest_min = (goal_time.getTime() - local_time.getTime())/60000;
 			if (rest_min<0)
 				rest_min = 0;
