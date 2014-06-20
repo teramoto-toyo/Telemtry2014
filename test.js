@@ -3,6 +3,7 @@ window.onload = function() {
 }
 
 
+
 //	DBからの情報更新.
 function updateData() {
   sendRequest(on_loaded, '', 'GET', './get_db_JSON.php', true, true);
