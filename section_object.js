@@ -163,7 +163,7 @@ var SectionObject = function() {
 	    if (speed < 100)
 	  		ofs_x +=4;
 
-	  	vat text = "i:" + i + "speed:" + speed;
+	  	var text = i + ":" + speed;
 
 	    ctx.fillText(text, ofs_x, ofs_y);
 
@@ -178,7 +178,7 @@ var SectionObject = function() {
 
 		if(work.game_mode > GAME_MODE.LOAD_COURSE) {
 
-			if (!init)
+			//if (!init)
 			{
 				// 最初だけ座標更新
 				this.w_pos_list.length = 0; 
@@ -198,6 +198,12 @@ var SectionObject = function() {
 			for (var i = 0; i < v_list.length; i++)
 				{
 					v = v_list[i][5];
+					if (i==13)
+				    {
+				    	console.log(v_list[i][5]);
+				    	console.log(v_list[i][6]);
+				    }
+
 					w_pos = work.course_obj.convCrsDis2Pos(v);
 					this.max_pos_list.push(w_pos);
 
@@ -212,7 +218,7 @@ var SectionObject = function() {
 
 	this.updateVcoord = function(work) {
 		if(work.section_json) {
-			for (i =0; i < 12; i++) {
+			for (i =0; i < v_list.length; i++) {
 				v_list[i][5] = work.section_json[i].max_speed_v; // 最高速V
 				v_list[i][6] = work.section_json[i].max_speed; // 最高速
 				v_list[i][7] = work.section_json[i].min_speed_v; // ボトムV
@@ -237,8 +243,11 @@ var SectionObject = function() {
 		    this.drawSectionMarker(ctx, i, x, y, angle, text);
 		}
 
-		var ct = 0
-		for (var i = 0; i < 13; i++)
+		//console.log(this.w_pos_list.length);
+		//console.log(this.max_pos_list.length);
+		//console.log(this.min_pos_list.length);
+
+		for (var i = 0; i < 14; i++)
 		{
 		    // 最高速
 		    angle = v_list[i][11];
@@ -251,7 +260,6 @@ var SectionObject = function() {
 				var speed =  Math.round(v_list[i][6]); 
 
 		    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, true);
-		    	ct++;
 		    }
 
 		    // ボトム
@@ -265,7 +273,6 @@ var SectionObject = function() {
 		    	this.drawSpeedMarker(ctx, i, x, y, angle, speed, false);
 		    }
 		}
-		console.log(ct);
 	};
 
 };
