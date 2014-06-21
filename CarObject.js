@@ -141,7 +141,7 @@ function CarObject() {
 
 		//	描画処理.
 	this.draw = function(ctx, scale) {
-		if(this.exec_mode == 1) {
+		if(this.exec_mode == 1 && document.getElementById("checkbox1").checked == false) {
 
 		 	// ウィンドウ.
 		 	var window_w = 180;
