@@ -66,7 +66,8 @@ function CarObject() {
 			// 異常なV更新
 			if (v_value == 0 && this.warning_v == 0)
 			{
-				if( this.old_crs_v > 500 && this.old_crs_v < 240000 )
+				// 異常範囲設定. 5000以上にしないとGPコース回って来た時にエラー扱いになる。
+				if( this.old_crs_v > 5000 && this.old_crs_v < 240000 )
 				{
 					// old_vがおかしい
 					this.warning_v = this.old_crs_v;
