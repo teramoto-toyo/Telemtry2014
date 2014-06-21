@@ -196,8 +196,8 @@ window.onload = function() {
 		}
 			
 		sys_work.ctx.fillStyle = 'rgba(0, 0, 0, 1.0)';
-    	sys_work.ctx.font="40px Arial";
-		sys_work.ctx.fillText(conv2fixed(now.getUTCHours() + 1) + ":" + conv2fixed(now.getMinutes()-1) + ":" + conv2fixed(now.getSeconds()-1), 10, 50);
+    	sys_work.ctx.font="50px Arial bold";
+		sys_work.ctx.fillText(conv2fixed(now.getUTCHours() + 1) + ":" + conv2fixed(now.getMinutes()-1) + ":" + conv2fixed(now.getSeconds()-1), 550, 990);
 
 		
 
@@ -248,10 +248,20 @@ window.onload = function() {
 			);
 			
 			jQuery.each(sys_work.section_json, function() {
+				var driver = "";
+				if(this.driver_index == 0)
+					driver = "Y.M.";
+				else if(this.driver_index == 1)
+					driver = "T.S";
+				else if(this.driver_index == 2)
+					driver = "M.S.";
+				else if(this.driver_index == 3)
+					driver = "J.T.";
+				
 				$('#section_data_table').append(
 					$("<tr></tr>")					.append('<td class="name">' + this.section_index + ' : ' + this.section_name + '</td>')
 					.append('<td>' + this.lap_number + '</td>')
-					.append('<td>' + this.driver_index + '</td>')
+					.append('<td>' + driver + '</td>')
 					.append('<td>' + this.max_speed + '</td>')
 					.append('<td>' + this.min_speed + '</td>')
 					.append('<td>' + this.max_g + '</td>')
