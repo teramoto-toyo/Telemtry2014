@@ -437,8 +437,9 @@ function MeterObject() {
 			// driver = 99：修理時間 98 : 赤旗
 
 			var stint_data = [
-				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 2, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
+				{ "driver" : 1
+				, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 3, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 1, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
 				{ "driver" : 0, "time" : dry_stint }, { "driver" : 99, "time" : 3 },
