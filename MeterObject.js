@@ -60,7 +60,7 @@ function MeterObject() {
 //		 	var win_y = 110;
 
 		 	var win_x = 650;
-		 	var win_y = -440;
+		 	var win_y = -480;
 		 	
 		 	var width  = 250;
 		 	var height = 250;
@@ -83,8 +83,8 @@ function MeterObject() {
     		ctx.lineWidth = 1;
 
     		//	パラメータ
-    		var l_pad  = -300;
-    		var l_pad2 = -140;
+    		var l_pad  = -260;
+    		var l_pad2 = -100;
 
     		var h_diff = 23;
     		var y_upper = h_diff*3 - 90;
@@ -271,11 +271,11 @@ function MeterObject() {
 			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
 		 	ctx.lineWidth = 5;
 
-		 	var win_x = -80;
-		 	var win_y = -270;
+		 	var win_x = -20;
+		 	var win_y = -68;
 
-		 	var width  = 30;
-		 	var height = 250;
+		 	var width  = 16;
+		 	var height = 300;
 
 		 	var fuel_max = 125;
 
@@ -313,7 +313,7 @@ function MeterObject() {
 //			ctx.fillText("used",      win_x-5, win_y + height + 40);
 
 			
-			ctx.fillText(sys_work.db_fuel_used.toFixed(2),  win_x + width + 3, win_y + graph_diff * 2 + 5);
+			ctx.fillText(sys_work.db_fuel_used.toFixed(2),  win_x + width + -80, win_y + graph_diff * 2 + 124);
 
 			ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
             ctx.beginPath();
