@@ -244,11 +244,15 @@ window.onload = function() {
 				.append($('<th></th>').text("Max G"))
 				.append($('<th colspan="4" class="tire"></th>').text("Tire Temp FL/FR/RL/RR"))
 				.append($('<th colspan="4" class="tire"></th>').text("Tire Press FL/FR/RL/RR"))
-				.append($('<th class="name"></th>').text("datetime"))
+//				.append($('<th class="name"></th>').text("datetime"))
 			);
 			
-			jQuery.each(sys_work.section_json, function() {
+//			var count = 0;
+//			var tr_class = "";
+			jQuery.each(sys_work.section_json, function(i) {			
 				var driver = "";
+				var tr_class_name = "";
+				
 				if(this.driver_index == 0)
 					driver = "Y.M.";
 				else if(this.driver_index == 1)
@@ -258,8 +262,15 @@ window.onload = function() {
 				else if(this.driver_index == 3)
 					driver = "J.T.";
 				
+				if(i % 2 == 0) 
+					tr_class_name = "double";
+				else
+					tr_class_name = "single";
+				
+				
 				$('#section_data_table').append(
-					$("<tr></tr>")					.append('<td class="name">' + this.section_index + ' : ' + this.section_name + '</td>')
+					$('<tr class="' + tr_class_name + '"></tr>')
+					.append('<td class="name">' + this.section_index + ' : ' + this.section_name + '</td>')
 					.append('<td>' + this.lap_number + '</td>')
 					.append('<td>' + driver + '</td>')
 					.append('<td>' + this.max_speed + '</td>')
@@ -273,9 +284,10 @@ window.onload = function() {
 					.append('<td>' + this.tyre_press_fr + '</td>')
 					.append('<td>' + this.tyre_press_rl + '</td>')
 					.append('<td>' + this.tyre_press_rr + '</td>')
-					.append('<td>' + this.datetime + '</td>')
+//					.append('<td>' + this.datetime + '</td>')
 
 				);
+//				console.log(count);
 			});
 		}
 	};

@@ -178,11 +178,14 @@ div#right_module {
 	float:left;
 	padding:4px 10px 0 0;
 }
-table#section_data_table { font-size:12px; position:absolute; top:370px; left:1000px; background-color:#fff; border-color:#ccc; border-width:2px; }
+table#section_data_table { font-size:12px; position:absolute; top:370px; left:1038px; border-width:1px; border-collapse: collapse; background-color:#fff; border-color:#ccc; width:824px; }
+table#section_data_table tr.single { background-color:#dadada; }
+table#section_data_table th { font-weight:bold; border-width:1px 2px 2px; background-color:#dadada; }
+table#section_data_table tr:hover { background-color:#aaaadd; }
 table#section_data_table th,
-table#section_data_table td { padding:4px 4px; }
+table#section_data_table td { padding:4px 4px; border-color:#ccc; }
 table#section_data_table th { text-align:right; }
 table#section_data_table th.name { text-align:left; }
 table#section_data_table th.tire { text-align:center; } 
-table#section_data_table td { text-align:right; }
+table#section_data_table td { text-align:right; border-width:1px 2px; }
 table#section_data_table td.name { text-align:left; }

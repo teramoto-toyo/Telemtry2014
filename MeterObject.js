@@ -64,8 +64,11 @@ function MeterObject() {
 		 	
 		 	var width  = 250;
 		 	var height = 250;
-
-
+		 	
+		 	//base
+			ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+            ctx.beginPath();
+		 	ctx.fillRect(win_x, win_y, width, height);
 
 		 	// window
             ctx.beginPath();
@@ -86,17 +89,17 @@ function MeterObject() {
     		var l_pad  = -260;
     		var l_pad2 = -100;
 
-    		var h_diff = 23;
-    		var y_upper = h_diff*3 - 90;
+    		var h_diff = 45;
+    		var y_upper = h_diff*6 - 250;
     	
 			ctx.font="20px Arial";
 			
-			ctx.fillStyle = 'rgba(225,   0, 0, 1.0)'; ctx.fillText("Engine Temp    ",                     win_x + l_pad,  win_y - y_upper + h_diff);
-			ctx.fillStyle = 'rgba(225,   0, 0, 1.0)'; ctx.fillText(sys_work.db_eng_temp.toFixed(2),       win_x + l_pad2, win_y - y_upper + h_diff);
-			ctx.fillStyle = 'rgba(0,   225, 0, 1.0)'; ctx.fillText("Engine Oil Temp",                     win_x + l_pad, win_y - y_upper + h_diff*2);
-			ctx.fillStyle = 'rgba(0,   225, 0, 1.0)'; ctx.fillText(sys_work.db_eng_oil_temp.toFixed(2),                     win_x + l_pad2, win_y - y_upper + h_diff*2);
-			ctx.fillStyle = 'rgba(0, 0,   225, 1.0)'; ctx.fillText("Gear Oil Temp  ",                     win_x + l_pad, win_y - y_upper + h_diff*3);
-			ctx.fillStyle = 'rgba(0, 0,   225, 1.0)'; ctx.fillText(sys_work.db_gbox_oil_temp.toFixed(2),                     win_x + l_pad2, win_y - y_upper + h_diff*3);
+			ctx.fillStyle = 'rgba(220,   0,   0, 1.0)'; ctx.fillText("Engine Temp    ",                     win_x - 168,  win_y - y_upper + h_diff);
+			ctx.fillStyle = 'rgba(  0,   0,   0, 1.0)'; ctx.fillText(sys_work.db_eng_temp.toFixed(2),       win_x + l_pad2, win_y - y_upper + h_diff*2-20);
+			ctx.fillStyle = 'rgba( 62, 199,  71, 1.0)'; ctx.fillText("Engine Oil Temp",                     win_x - 198, win_y - y_upper + h_diff*3);
+			ctx.fillStyle = 'rgba(  0,   0,   0, 1.0)'; ctx.fillText(sys_work.db_eng_oil_temp.toFixed(2),   win_x + l_pad2, win_y - y_upper + h_diff*4-20);
+			ctx.fillStyle = 'rgba( 84, 156, 220, 1.0)'; ctx.fillText("Gear Oil Temp  ",                     win_x - 182, win_y - y_upper + h_diff*5);
+			ctx.fillStyle = 'rgba(  0,   0,   0, 1.0)'; ctx.fillText(sys_work.db_gbox_oil_temp.toFixed(2),  win_x + l_pad2, win_y - y_upper + h_diff*6-20);
 
 
 			var graph_diff_y = height / 6;
@@ -177,8 +180,12 @@ function MeterObject() {
 
 		 	var width  = 250;
 		 	var height = 250;
-
-
+		 	
+		 	//base
+			ctx.fillStyle = 'rgba(255, 255, 255, 1)';
+            ctx.beginPath();
+		 	ctx.fillRect(win_x, win_y, width, height);
+		 	
 		 	// window
             ctx.beginPath();
 			ctx.moveTo(win_x, win_y);
@@ -271,14 +278,13 @@ function MeterObject() {
 			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
 		 	ctx.lineWidth = 5;
 
-		 	var win_x = -20;
+		 	var win_x = 20;
 		 	var win_y = -68;
 
 		 	var width  = 16;
 		 	var height = 300;
 
 		 	var fuel_max = 125;
-
 
 
 		 	// window
@@ -481,7 +487,7 @@ function MeterObject() {
 				var stint_time = stint_data[i].time;
 				var stint_width = (stint_time/total_min)*width;
 
-				ctx.fillStyle = 'rgba(0, 120, 220, 1)';
+				ctx.fillStyle = 'rgba(84, 156, 220, 1)';
 
 				if(stint_x + stint_width >=  win_x + width)
 				{
