@@ -45,8 +45,15 @@ function CarObject() {
 			//	移動処理.
 			
 			//	補間処理.
-            //var v_value = work.db_lap_distance + document.getElementById("test_id").value;
             var v_value = work.db_lap_distance; 
+
+            var offset = document.getElementById("test_id").value;
+
+            if (isFinite(offset))
+            {
+            	v_value += Number(offset);
+            }
+
 			//var v_value = document.getElementById("test_id").value; //テキストフォームの値
 			var target = work.course_obj.limitDis(v_value);
 
