@@ -19,7 +19,7 @@ var CourseObject = function() {
 	this.draw_scale_x	= 1.0;
 	this.draw_scale_y	= 1.0;
 	//	描画オフセット.
-	this.draw_offset_x	= 0;
+	this.draw_offset_x	= 3200;
 	this.draw_offset_y	= 0;
 
 
@@ -184,8 +184,8 @@ var CourseObject = function() {
 		//	データがまだなければ何も描画しない.
 		if(this.exec_mode < 3) return;
 
-		ctx.strokeStyle = 'rgba(172, 172, 196, 1.0)';
-		ctx.lineWidth = 12;
+		ctx.strokeStyle = 'rgba(0, 120, 222, 1.0)';
+		ctx.lineWidth = 6;
 
 		ctx.beginPath();
 
@@ -206,10 +206,10 @@ var CourseObject = function() {
 
 		//	コースのオーバーレイ描画.
 		//var size = fc.controller.getValue(0);
-		var size = 1130;
+		var size = 1210;
 		if (sys_work.load_img)
 		{
-			ctx.drawImage(sys_work.overlay_img, -size/2.0, -size/2.0, size, size);
+			ctx.drawImage(sys_work.overlay_img, -size/2.0-466, -size/2.0, size, size);
 			//ctx.drawImage(sys_work.overlay_img, -sys_work.SCR_W/2, -sys_work.SCR_H/2, sys_work.SCR_W, sys_work.SCR_H);
 		}
 	};
@@ -231,7 +231,7 @@ var CourseObject = function() {
 		for(var lp1 = 0; lp1 < this.crs_data.length; lp1++) {
 //			console.log(this.crs_data[lp1]);
 			var	vec = new Vector2();
-			vec.x = (parseFloat(this.crs_data[lp1][1]) + parseFloat(this.crs_data[lp1][4])) / 2;
+			vec.x = (parseFloat(this.crs_data[lp1][1]) + parseFloat(this.crs_data[lp1][4])) / 2 - this.draw_offset_x;
 			vec.y = (parseFloat(this.crs_data[lp1][3]) + parseFloat(this.crs_data[lp1][6])) / 2;
 
 //			console.log(vec.x + ", " + vec.y);
@@ -268,7 +268,7 @@ var CourseObject = function() {
 
 		//	表示用スケールを求める.
 		//var scale_offset_original = 300;
-		var scale_offset = 890;
+		var scale_offset = 1100;
 		this.draw_scale_x	= sys_work.SCR_W / (crs_size.x + scale_offset);
 		this.draw_scale_y	= sys_work.SCR_H / (crs_size.y + scale_offset);
 

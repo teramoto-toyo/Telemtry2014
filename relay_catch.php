@@ -99,6 +99,6 @@
 	
 		$sql_section = "insert into nur2014_section (section_index, lap_number, driver_index, section_name, start_v, end_v, in_section, max_speed, max_speed_v, min_speed, min_speed_v, max_g, max_g_v, tyre_temp_fl_in, tyre_temp_fr_in, tyre_temp_rl_in, tyre_temp_rr_in, tyre_temp_fl_ce, tyre_temp_fr_ce, tyre_temp_rl_ce, tyre_temp_rr_ce, tyre_temp_fl_ot, tyre_temp_fr_ot, tyre_temp_rl_ot, tyre_temp_rr_ot, tyre_press_fl, tyre_press_fr, tyre_press_rl, tyre_press_rr, datetime) values ( '$sction_index', '$lap_number', '$driver_index', '$section_name', '$start_v', '$end_v', '$in_section', '$max_speed', '$max_speed_v', '$min_speed', '$min_speed_v', '$max_g', '$max_g_v', '$tyre_temp_fl_in', '$tyre_temp_fr_in', '$tyre_temp_rl_in', '$tyre_temp_rr_in', '$tyre_temp_fl_ce', '$tyre_temp_fr_ce', '$tyre_temp_rl_ce', '$tyre_temp_rr_ce', '$tyre_temp_fl_ot', '$tyre_temp_fr_ot', '$tyre_temp_rl_ot', '$tyre_temp_rr_ot', '$tyre_press_fl', '$tyre_press_fr', '$tyre_press_rl', '$tyre_press_rr', '$datetime')";
 		
-		if (!($rs = mysql_query($sql_section))) { echo "db query error4"; die; }
+		if (!($rs = mysql_query($sql_section))) { /*echo "db query error4"; die;*/ }
 	}
 ?>

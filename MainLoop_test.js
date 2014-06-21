@@ -9,9 +9,9 @@ var GAME_MODE = {
 //	システム共通ワーク.
 var	SystemWork = function() {
 	//	画面サイズ.
-	this.SCR_W		= 980;
-	this.SCR_H		= 980;
-	this.SCR_HH     = 1300;  // スクリーンサイズ.
+	this.SCR_W		= 1920;
+	this.SCR_H		= 1080;
+	this.SCR_HH     = 1080;  // スクリーンサイズ.
 
 	//	Canvasと描画コンテキスト.
 	this.canvas		= null;

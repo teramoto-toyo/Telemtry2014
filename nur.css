@@ -178,7 +178,7 @@ div#right_module {
 	float:left;
 	padding:4px 10px 0 0;
 }
-table#section_data_table { font-size:12px; position:absolute; top:10px; left:1000px; }
+table#section_data_table { font-size:12px; position:absolute; top:370px; left:1000px; }
 table#section_data_table th,
 table#section_data_table td { padding:4px 4px; }
 table#section_data_table th { text-align:right; }

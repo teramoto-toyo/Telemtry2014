@@ -56,9 +56,12 @@ function MeterObject() {
 			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
 		 	ctx.lineWidth = 1;
 
-		 	var win_x = 230;
-		 	var win_y = 110;
+//		 	var win_x = 230;
+//		 	var win_y = 110;
 
+		 	var win_x = 650;
+		 	var win_y = -440;
+		 	
 		 	var width  = 250;
 		 	var height = 250;
 
@@ -80,11 +83,11 @@ function MeterObject() {
     		ctx.lineWidth = 1;
 
     		//	パラメータ
-    		var l_pad  = 20;
-    		var l_pad2 = 180;
+    		var l_pad  = -300;
+    		var l_pad2 = -140;
 
     		var h_diff = 23;
-    		var y_upper = h_diff*3 + 20;
+    		var y_upper = h_diff*3 - 90;
     	
 			ctx.font="20px Arial";
 			
@@ -169,12 +172,11 @@ function MeterObject() {
 			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
 		 	ctx.lineWidth = 1;
 
-		 	var win_x = 330;
-		 	var win_y = 400;
+		 	var win_x = 80;
+		 	var win_y = -480;
 
-		 	var width  = 150;
-		 	var height = 150;
-
+		 	var width  = 250;
+		 	var height = 250;
 
 
 		 	// window
@@ -330,8 +332,8 @@ function MeterObject() {
 			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
 		 	ctx.lineWidth = 1;
 
-		 	var win_x = -430;
-		 	var win_y = 450;
+		 	var win_x = 100;
+		 	var win_y = 300;
 
 		 	var width  = 700;
 		 	var height = 100;
