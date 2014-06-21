@@ -133,9 +133,10 @@ function CarObject() {
 	};
 
 	this.pushButton = function () {
-		console.log('button push')
-		console.log(document.getElementById("checkbox1").checked);
-		console.log(document.getElementById("checkbox2").checked);
+		//console.log('button push')
+		//console.log(document.getElementById("checkbox1").checked);
+		//console.log(document.getElementById("checkbox2").checked);
+		this.warning_v = 0;
 	};
 
 		//	描画処理.
