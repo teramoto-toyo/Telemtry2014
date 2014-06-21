@@ -543,8 +543,9 @@ function MeterObject() {
 			
 			// 現在時刻バー
 			var local_time = new Date ();
-			var goal_time =  new Date (2014, 6, 21, 16, 00, 00);
+			var goal_time =  new Date (2014, 5, 22, 16, 00, 00); //月の指定だけ-1する必要がある…。
 			var rest_min = (goal_time.getTime() - local_time.getTime())/60000;
+
 			if (rest_min<0)
 				rest_min = 0;
 
