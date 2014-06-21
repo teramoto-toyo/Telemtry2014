@@ -132,6 +132,11 @@ function CarObject() {
 		}
 	};
 
+	this.pushButton = function () {
+		console.log('button push')
+		console.log(document.getElementById("checkbox1").checked);
+		console.log(document.getElementById("checkbox2").checked);
+	};
 
 		//	描画処理.
 	this.draw = function(ctx, scale) {
