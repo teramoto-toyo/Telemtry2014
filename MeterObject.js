@@ -329,15 +329,21 @@ function MeterObject() {
 
 	// スティント meter /////////////////////////////////////////////
 	this.drawStint = function(ctx, scale) {
-			ctx.strokeStyle = 'rgba(32, 32, 32, 1.0)';
+			ctx.strokeStyle = 'rgba(55, 55, 55, 1.0)';
 		 	ctx.lineWidth = 1;
 
-		 	var win_x = 100;
+		 	var win_x = -62;
 		 	var win_y = 300;
 
-		 	var width  = 700;
-		 	var height = 100;
-
+		 	var width  = 960;
+		 	var height = 150;
+		 	
+		 	//ベース描画
+    		ctx.fillStyle = 'rgba(255, 255, 255, 1.0)';
+            ctx.beginPath();
+	 		ctx.fillRect(win_x, win_y, width, height);
+		 	
+		 	
 		 	// window
             ctx.beginPath();
 			ctx.moveTo(win_x, win_y);
@@ -359,34 +365,38 @@ function MeterObject() {
 
 			// メモリ読み
 			var pad = 17;
-			ctx.font="10px Arial";
+			ctx.font="14px Arial";
 			ctx.fillStyle = 'rgba(25, 25, 25, 1.0)';
-			ctx.fillText("Yamauchi",  win_x - 50, win_y + pad);
-			ctx.fillText("Tobias",    win_x - 50, win_y + graph_diff_h  + pad);
-			ctx.fillText("Michael",   win_x - 50, win_y + graph_diff_h * 2 + pad);
-			ctx.fillText("Jordan",     win_x - 50, win_y + graph_diff_h * 3 + pad);
+			ctx.fillText("Yamauchi",  win_x - 76, win_y + pad);
+			ctx.fillText("Tobias",    win_x - 76, win_y + graph_diff_h  + pad);
+			ctx.fillText("Michael",   win_x - 76, win_y + graph_diff_h * 2 + pad);
+			ctx.fillText("Jordan",     win_x - 76, win_y + graph_diff_h * 3 + pad);
+			
 			
 			var four_diff = graph_diff_w*4;
-			ctx.fillText("Start",     win_x,                   win_y + height + 10);
-			ctx.fillText("4",      win_x + four_diff - 5,          win_y + height + 10);
-			ctx.fillText("8",      win_x + four_diff * 2 - 5,      win_y + height + 10);
-			ctx.fillText("12",     win_x + four_diff * 3 - 5,      win_y + height + 10);
-			ctx.fillText("16",     win_x + four_diff * 4 - 5,      win_y + height + 10);
-			ctx.fillText("20",     win_x + four_diff * 5 - 5,      win_y + height + 10);
-			ctx.fillText("goal",   win_x + four_diff * 6 - 20,     win_y + height + 10);
+			var height_diff = 14;
+			ctx.fillText("Start",	win_x,							win_y + height + height_diff);
+			ctx.fillText("4",		win_x + four_diff,          win_y + height + height_diff);
+			ctx.fillText("8",		win_x + four_diff * 2,      win_y + height + height_diff);
+			ctx.fillText("12",		win_x + four_diff * 3,      win_y + height + height_diff);
+			ctx.fillText("16",		win_x + four_diff * 4,      win_y + height + height_diff);
+			ctx.fillText("20",		win_x + four_diff * 5,      win_y + height + height_diff);
+			ctx.fillText("goal",	win_x + four_diff * 6 - 30,     win_y + height + height_diff);
 			
-			ctx.fillText("16:00",     win_x,                   win_y + height + 20);
-			ctx.fillText("20:00",      win_x + four_diff - 5,          win_y + height + 20);
-			ctx.fillText("0:00",      win_x + four_diff * 2 - 5,      win_y + height + 20);
-			ctx.fillText("4:00",     win_x + four_diff * 3 - 5,      win_y + height + 20);
-			ctx.fillText("8:00",     win_x + four_diff * 4 - 5,      win_y + height + 20);
-			ctx.fillText("12:00",     win_x + four_diff * 5 - 5,      win_y + height + 20);
-			ctx.fillText("16:00",   win_x + four_diff * 6 - 20,     win_y + height + 20);
+			height_diff = 30;
+			ctx.fillText("16:00",	win_x,						win_y + height + height_diff);
+			ctx.fillText("20:00",	win_x + four_diff,		win_y + height + height_diff);
+			ctx.fillText("0:00",	win_x + four_diff * 2,	win_y + height + height_diff);
+			ctx.fillText("4:00",	win_x + four_diff * 3,	win_y + height + height_diff);
+			ctx.fillText("8:00",	win_x + four_diff * 4,	win_y + height + height_diff);
+			ctx.fillText("12:00",	win_x + four_diff * 5,	win_y + height + height_diff);
+			ctx.fillText("16:00",	win_x + four_diff * 6 - 36,	win_y + height + height_diff);
 
+			ctx.font="10px Arial";
 
 
 			// graph grid
-			ctx.strokeStyle = 'rgba(0, 0, 0, 1.0)';
+			ctx.strokeStyle = 'rgba(100, 100, 100, 1.0)';
 			ctx.lineWidth = 1;
 
             ctx.beginPath();
@@ -402,7 +412,7 @@ function MeterObject() {
 
 			//ctx.moveTo(win_x + graph_diff,     win_y );
 			//ctx.lineTo(win_x + graph_diff ,     win_y + height);
-			ctx.strokeStyle = 'rgba(0, 0, 0, 1.0)';
+			ctx.strokeStyle = 'rgba(100, 100, 100, 1.0)';
 			ctx.lineWidth = 1;
 
 			
@@ -470,7 +480,7 @@ function MeterObject() {
 				var stint_time = stint_data[i].time;
 				var stint_width = (stint_time/total_min)*width;
 
-				ctx.fillStyle = 'rgba(40, 40, 200, 0.8)';
+				ctx.fillStyle = 'rgba(0, 120, 220, 1)';
 
 				if(stint_x + stint_width >=  win_x + width)
 				{
@@ -490,12 +500,12 @@ function MeterObject() {
 				else if(stint_data[i].driver == 99) {
 					cor = stint_data[i-1].driver;
 					bar_height = height / 4;
-					ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
+//					ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
 				}
 				else if(stint_data[i].driver == 98) {
 					cor = 0;
 					bar_height = height;
-					ctx.fillStyle = 'rgba(255, 0, 0, 0.8)';
+					ctx.fillStyle = 'rgba(255, 0, 0, 0.9)';
 				}
 				
 				var stint_y = win_y + (height / 4) * cor;
